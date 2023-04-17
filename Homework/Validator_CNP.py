@@ -46,6 +46,7 @@ else:
 if control_digit != int(CNP[-1]):
     print("Control digit invalid")
     v=1
+# We verify the year,month and day
 try:
     datetime.strptime(CNP[1:7], '%y%m%d')
 except ValueError:

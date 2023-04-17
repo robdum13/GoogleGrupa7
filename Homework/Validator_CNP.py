@@ -1,3 +1,4 @@
+from datetime import datetime
 v=0
 CNP=input("Please enter CNP: ")
 
@@ -19,7 +20,7 @@ if s not in range(1,9):
 counties = ["%.2d" % i for i in range(1,47)]
 counties.append('51')
 counties.append('52')
-inserted_county = CNP[6:8]
+inserted_county = CNP[7:9]
 if inserted_county in counties:
     pass
 else:
@@ -44,6 +45,11 @@ else:
     control_digit = sum % 11
 if control_digit != int(CNP[-1]):
     print("Control digit invalid")
+    v=1
+try:
+    datetime.strptime(CNP[1:7], '%y%m%d')
+except ValueError:
+    print('Ai introdus o data invalida\nFormatul trebuie sa fie YYMMDD')
     v=1
 
 if v==0:

@@ -71,6 +71,14 @@ while True:
 
         adauga_alte_tasks = input("Doriți să adăugați alte tasks? (Da/Nu): ")
         if adauga_alte_tasks.lower() != "da":
+            with open("tasks.txt", "a") as f:
+                for task in tasks:
+                    f.write(f"Task: {task['task']}\n")
+                    f.write(f"Date: {task['data_limita']}\n")
+                    f.write(f"Person: {task['persoana_responsabila']}\n")
+                    f.write(f"Category: {task['categorie']}\n")
+                    f.write("\n")
+
             break
 
     elif optiune == "2":
